@@ -1,0 +1,7 @@
+﻿services:
+  encrytext:
+    image: encrytext
+    build:
+      context: .
+      dockerfile: Dockerfile
+

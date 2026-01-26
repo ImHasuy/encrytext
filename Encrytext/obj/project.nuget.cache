@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "BAJFaVfed18=",
+  "success": true,
+  "projectFilePath": "/home/jocibevanbaszva/encrytext/encrytext/Encrytext/Encrytext.csproj",
+  "expectedPackageFiles": [
+    "/home/jocibevanbaszva/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.0/microsoft.aspnetcore.app.ref.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
