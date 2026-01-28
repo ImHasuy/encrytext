@@ -1,3 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Encrytext.Core;
+using Encrytext.UI;
+using Microsoft.Extensions.Hosting;
 
-Console.WriteLine("Hello, World!");
+//await Host.CreateDefaultBuilder(args).ConfigureServices(s =>
+//{
+//    s.AddServiceCollection();
+//}).Build().StartAsync();
+
+var startPage = new StartPage();
+startPage.Run();
+
