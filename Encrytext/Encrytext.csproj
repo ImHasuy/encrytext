@@ -16,7 +16,7 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2" />
-      <PackageReference Include="Spectre.Console" Version="0.54.0" />
+      <PackageReference Include="Terminal.Gui" Version="2.0.0-develop.4990" />
     </ItemGroup>
 
 </Project>

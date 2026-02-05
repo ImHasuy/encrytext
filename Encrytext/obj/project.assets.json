@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "ColorHelper/1.8.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/ColorHelper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ColorHelper.dll": {}
+        }
+      },
+      "JetBrains.Annotations/2025.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "related": ".deps.json;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "related": ".deps.json;.xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration/10.0.2": {
         "type": "package",
         "dependencies": {
@@ -579,19 +601,6 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Spectre.Console/0.54.0": {
-        "type": "package",
-        "compile": {
-          "lib/net10.0/Spectre.Console.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/Spectre.Console.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.Diagnostics.EventLog/10.0.2": {
         "type": "package",
         "compile": {
@@ -617,10 +626,155 @@
             "rid": "win"
           }
         }
+      },
+      "System.IO.Abstractions/22.0.16": {
+        "type": "package",
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "22.0.16",
+          "TestableIO.System.IO.Abstractions.Wrappers": "22.0.16"
+        },
+        "compile": {
+          "lib/net9.0/System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Terminal.Gui/2.0.0-develop.4990": {
+        "type": "package",
+        "dependencies": {
+          "ColorHelper": "[1.8.1, 2.0.0)",
+          "JetBrains.Annotations": "2025.2.2",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
+          "System.IO.Abstractions": "[22.0.16, 23.0.0)",
+          "Wcwidth": "4.0.0"
+        },
+        "compile": {
+          "lib/net10.0/Terminal.Gui.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Terminal.Gui.dll": {
+            "related": ".xml"
+          }
+        },
+        "resource": {
+          "lib/net10.0/fr-FR/Terminal.Gui.resources.dll": {
+            "locale": "fr-FR"
+          },
+          "lib/net10.0/ja-JP/Terminal.Gui.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net10.0/pt-PT/Terminal.Gui.resources.dll": {
+            "locale": "pt-PT"
+          },
+          "lib/net10.0/zh-Hans/Terminal.Gui.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions/22.0.16": {
+        "type": "package",
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "9.0.0"
+        },
+        "compile": {
+          "lib/net9.0/TestableIO.System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/TestableIO.System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.Wrappers/22.0.16": {
+        "type": "package",
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "9.0.0"
+        },
+        "compile": {
+          "lib/net9.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Testably.Abstractions.FileSystem.Interface/9.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Testably.Abstractions.FileSystem.Interface.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Testably.Abstractions.FileSystem.Interface.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Wcwidth/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Wcwidth.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Wcwidth.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
   "libraries": {
+    "ColorHelper/1.8.1": {
+      "sha512": "rblWXd/02TfwJjX53xEfQnbnDRKxCm09VtavV8JaIcmIFWt9efNf6xTQ3WeXgy/she5R31eRTtnizFoUoDrs5w==",
+      "type": "package",
+      "path": "colorhelper/1.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "colorhelper.1.8.1.nupkg.sha512",
+        "colorhelper.nuspec",
+        "lib/netstandard2.0/ColorHelper.dll",
+        "logo.jpg"
+      ]
+    },
+    "JetBrains.Annotations/2025.2.2": {
+      "sha512": "0X56ZRizuHdrnPpgXjWV7f2tQO1FlQg5O1967OGKnI/4ZRNOK642J8L7brM1nYvrxTTU5TP1yRyXLRLaXLPQ8A==",
+      "type": "package",
+      "path": "jetbrains.annotations/2025.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "jetbrains.annotations.2025.2.2.nupkg.sha512",
+        "jetbrains.annotations.nuspec",
+        "lib/net20/JetBrains.Annotations.dll",
+        "lib/net20/JetBrains.Annotations.xml",
+        "lib/netstandard1.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard1.0/JetBrains.Annotations.dll",
+        "lib/netstandard1.0/JetBrains.Annotations.xml",
+        "lib/netstandard2.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard2.0/JetBrains.Annotations.dll",
+        "lib/netstandard2.0/JetBrains.Annotations.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml",
+        "readme.md"
+      ]
+    },
     "Microsoft.Extensions.Configuration/10.0.2": {
       "sha512": "Lws+o4DFw6p5NquRoYA3d5QVvi49ugNw7TxbW4QGLsL8F1LCCyJqWFy0+RMQ/hzUuS9aKV5NJ/XGAF5N9/RQcQ==",
       "type": "package",
@@ -1486,27 +1640,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Spectre.Console/0.54.0": {
-      "sha512": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA==",
-      "type": "package",
-      "path": "spectre.console/0.54.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net10.0/Spectre.Console.dll",
-        "lib/net10.0/Spectre.Console.xml",
-        "lib/net8.0/Spectre.Console.dll",
-        "lib/net8.0/Spectre.Console.xml",
-        "lib/net9.0/Spectre.Console.dll",
-        "lib/net9.0/Spectre.Console.xml",
-        "lib/netstandard2.0/Spectre.Console.dll",
-        "lib/netstandard2.0/Spectre.Console.xml",
-        "logo.png",
-        "spectre.console.0.54.0.nupkg.sha512",
-        "spectre.console.nuspec"
-      ]
-    },
     "System.Diagnostics.EventLog/10.0.2": {
       "sha512": "TJPpTLF5MFPobq09c9BQ5X8QuviQfsKvH0Jbm7MkGylGvfIdRqJQLZDPC5sMRFkk9aZhmgir1NJKekip2NxfaA==",
       "type": "package",
@@ -1544,13 +1677,150 @@
         "system.diagnostics.eventlog.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "System.IO.Abstractions/22.0.16": {
+      "sha512": "qDB595QEPyyguFNzKDIiy8MqMBuag4GeU/nJOiRDopwUtc40lLA8acW+/pxNny7s9kEQ3YSKbAOR8xJcjujHFg==",
+      "type": "package",
+      "path": "system.io.abstractions/22.0.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net472/System.IO.Abstractions.dll",
+        "lib/net472/System.IO.Abstractions.xml",
+        "lib/net6.0/System.IO.Abstractions.dll",
+        "lib/net6.0/System.IO.Abstractions.xml",
+        "lib/net8.0/System.IO.Abstractions.dll",
+        "lib/net8.0/System.IO.Abstractions.xml",
+        "lib/net9.0/System.IO.Abstractions.dll",
+        "lib/net9.0/System.IO.Abstractions.xml",
+        "lib/netstandard2.0/System.IO.Abstractions.dll",
+        "lib/netstandard2.0/System.IO.Abstractions.xml",
+        "lib/netstandard2.1/System.IO.Abstractions.dll",
+        "lib/netstandard2.1/System.IO.Abstractions.xml",
+        "system.io.abstractions.22.0.16.nupkg.sha512",
+        "system.io.abstractions.nuspec"
+      ]
+    },
+    "Terminal.Gui/2.0.0-develop.4990": {
+      "sha512": "w6fxHk6Q5azozlIn2z8UQ75NLS/yEIxZNeu7POzwZ6z3E1pgPLaAXsoi3Z1PpH0KfSxE4nfuC5peDV3V8CgV1w==",
+      "type": "package",
+      "path": "terminal.gui/2.0.0-develop.4990",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "analyzers/dotnet/cs/Terminal.Gui.Analyzers.dll",
+        "lib/net10.0/Terminal.Gui.dll",
+        "lib/net10.0/Terminal.Gui.xml",
+        "lib/net10.0/fr-FR/Terminal.Gui.resources.dll",
+        "lib/net10.0/ja-JP/Terminal.Gui.resources.dll",
+        "lib/net10.0/pt-PT/Terminal.Gui.resources.dll",
+        "lib/net10.0/zh-Hans/Terminal.Gui.resources.dll",
+        "logo.png",
+        "terminal.gui.2.0.0-develop.4990.nupkg.sha512",
+        "terminal.gui.nuspec"
+      ]
+    },
+    "TestableIO.System.IO.Abstractions/22.0.16": {
+      "sha512": "ZYDFchhWab1FELpnJUJI3gHX/jAEKLiENnnKmUWyGjR6BklGhItxU2rCmwzwMXsd6C2CUpMU+YSXlKdpxNPkBQ==",
+      "type": "package",
+      "path": "testableio.system.io.abstractions/22.0.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net472/TestableIO.System.IO.Abstractions.dll",
+        "lib/net472/TestableIO.System.IO.Abstractions.xml",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/net9.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/net9.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.dll",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.xml",
+        "testableio.system.io.abstractions.22.0.16.nupkg.sha512",
+        "testableio.system.io.abstractions.nuspec"
+      ]
+    },
+    "TestableIO.System.IO.Abstractions.Wrappers/22.0.16": {
+      "sha512": "QUX0TLMvnRLEgvuMRotrZKN9eCdX4yzK7HJCaPj17T4jvUf+G4XifdLpB5wmRct2zKlscYzpWMOmHjKabse3yw==",
+      "type": "package",
+      "path": "testableio.system.io.abstractions.wrappers/22.0.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net472/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net472/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/net9.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net9.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "testableio.system.io.abstractions.wrappers.22.0.16.nupkg.sha512",
+        "testableio.system.io.abstractions.wrappers.nuspec"
+      ]
+    },
+    "Testably.Abstractions.FileSystem.Interface/9.0.0": {
+      "sha512": "uksk86YlnzAdyfVNu3wICU0X5iXVe9LF7Q3UkngNliHWEvM5gvAlOUr+jmd9JwmbJWISH5+i1vyXE02lEVz7WQ==",
+      "type": "package",
+      "path": "testably.abstractions.filesystem.interface/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Docs/Interface.md",
+        "Docs/logo_256x256.png",
+        "lib/net6.0/Testably.Abstractions.FileSystem.Interface.dll",
+        "lib/net6.0/Testably.Abstractions.FileSystem.Interface.xml",
+        "lib/net8.0/Testably.Abstractions.FileSystem.Interface.dll",
+        "lib/net8.0/Testably.Abstractions.FileSystem.Interface.xml",
+        "lib/net9.0/Testably.Abstractions.FileSystem.Interface.dll",
+        "lib/net9.0/Testably.Abstractions.FileSystem.Interface.xml",
+        "lib/netstandard2.0/Testably.Abstractions.FileSystem.Interface.dll",
+        "lib/netstandard2.0/Testably.Abstractions.FileSystem.Interface.xml",
+        "lib/netstandard2.1/Testably.Abstractions.FileSystem.Interface.dll",
+        "lib/netstandard2.1/Testably.Abstractions.FileSystem.Interface.xml",
+        "testably.abstractions.filesystem.interface.9.0.0.nupkg.sha512",
+        "testably.abstractions.filesystem.interface.nuspec"
+      ]
+    },
+    "Wcwidth/4.0.0": {
+      "sha512": "WN/MuHXS2MKYP2xw0CsuEVMhL8esvsMK/w9rZ1Wv//8LonIUpEXmG+grp2DSGwoVdkVYRanOveJ7iILScQTREQ==",
+      "type": "package",
+      "path": "wcwidth/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net10.0/Wcwidth.dll",
+        "lib/net10.0/Wcwidth.xml",
+        "lib/net8.0/Wcwidth.dll",
+        "lib/net8.0/Wcwidth.xml",
+        "lib/net9.0/Wcwidth.dll",
+        "lib/net9.0/Wcwidth.xml",
+        "lib/netstandard2.0/Wcwidth.dll",
+        "lib/netstandard2.0/Wcwidth.xml",
+        "wcwidth.4.0.0.nupkg.sha512",
+        "wcwidth.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "Microsoft.Extensions.DependencyInjection >= 10.0.2",
       "Microsoft.Extensions.Hosting >= 10.0.2",
-      "Spectre.Console >= 0.54.0"
+      "Terminal.Gui >= 2.0.0-develop.4990"
     ]
   },
   "packageFolders": {
@@ -1604,9 +1874,9 @@
             "target": "Package",
             "version": "[10.0.2, )"
           },
-          "Spectre.Console": {
+          "Terminal.Gui": {
             "target": "Package",
-            "version": "[0.54.0, )"
+            "version": "[2.0.0-develop.4990, )"
           }
         },
         "imports": [
