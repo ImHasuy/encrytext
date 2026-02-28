@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "X5Nnz+RWpEg=",
+  "dgSpecHash": "R+0UW2DdfJA=",
   "success": true,
   "projectFilePath": "/home/jocibevanbaszva/encrytext/encrytext/Encrytext/Encrytext.csproj",
   "expectedPackageFiles": [
     "/home/jocibevanbaszva/.nuget/packages/colorhelper/1.8.1/colorhelper.1.8.1.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/jetbrains.annotations/2025.2.2/jetbrains.annotations.2025.2.2.nupkg.sha512",
+    "/home/jocibevanbaszva/.nuget/packages/libsodium/1.0.21/libsodium.1.0.21.nupkg.sha512",
+    "/home/jocibevanbaszva/.nuget/packages/microsoft.dotnet.platformabstractions/5.0.0-preview.5.20278.1/microsoft.dotnet.platformabstractions.5.0.0-preview.5.20278.1.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/microsoft.extensions.configuration/10.0.2/microsoft.extensions.configuration.10.0.2.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.2/microsoft.extensions.configuration.abstractions.10.0.2.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/microsoft.extensions.configuration.binder/10.0.2/microsoft.extensions.configuration.binder.10.0.2.nupkg.sha512",
@@ -33,6 +35,8 @@
     "/home/jocibevanbaszva/.nuget/packages/microsoft.extensions.options/10.0.2/microsoft.extensions.options.10.0.2.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/microsoft.extensions.options.configurationextensions/10.0.2/microsoft.extensions.options.configurationextensions.10.0.2.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/microsoft.extensions.primitives/10.0.2/microsoft.extensions.primitives.10.0.2.nupkg.sha512",
+    "/home/jocibevanbaszva/.nuget/packages/sodium.core/1.4.1-preview.1/sodium.core.1.4.1-preview.1.nupkg.sha512",
+    "/home/jocibevanbaszva/.nuget/packages/system.commandline/2.0.0-beta4.22272.1/system.commandline.2.0.0-beta4.22272.1.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/system.diagnostics.eventlog/10.0.2/system.diagnostics.eventlog.10.0.2.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/system.io.abstractions/22.0.16/system.io.abstractions.22.0.16.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/terminal.gui/2.0.0-develop.4990/terminal.gui.2.0.0-develop.4990.nupkg.sha512",
@@ -40,7 +44,7 @@
     "/home/jocibevanbaszva/.nuget/packages/testableio.system.io.abstractions.wrappers/22.0.16/testableio.system.io.abstractions.wrappers.22.0.16.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/testably.abstractions.filesystem.interface/9.0.0/testably.abstractions.filesystem.interface.9.0.0.nupkg.sha512",
     "/home/jocibevanbaszva/.nuget/packages/wcwidth/4.0.0/wcwidth.4.0.0.nupkg.sha512",
-    "/home/jocibevanbaszva/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.0/microsoft.aspnetcore.app.ref.10.0.0.nupkg.sha512"
+    "/home/jocibevanbaszva/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.3/microsoft.aspnetcore.app.ref.10.0.3.nupkg.sha512"
   ],
   "logs": []
 }
