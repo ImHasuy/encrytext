@@ -87,7 +87,7 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
          _partnerList.SetSource(AppState.CurrentUser.Contacts);
 
 
-         if (AppState.CurrentUser.Contacts != null)
+         if (AppState.CurrentUser.Contacts.Count == 0)
          {
              AppState.CurrentUser.Contacts.CollectionChanged += (s, e) =>
              {

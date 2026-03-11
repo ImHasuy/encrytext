@@ -35,7 +35,11 @@ public class UdpListenerService
                 UdpReceiveResult result = await udp.ReceiveAsync(cancellationToken);
                 string json = Encoding.UTF8.GetString(result.Buffer);
                 var packet = JsonSerializer.Deserialize<UDPDiscover>(json);
-
+                if (AppState.CurrentUser.SentDiscoveries.Any(c => c.RequestId.Equals(packet!.RequestId)))
+                {
+                    break;
+                }
+                
                 switch (packet?.Type)
                 {
                     case TypeEnum.request:
