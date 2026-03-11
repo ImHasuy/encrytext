@@ -11,15 +11,22 @@ public sealed class SinginWindow : Runnable<string?>
     {
         
         Title = $"Example App ({Application.QuitKey} to quit)";
+
         
-        var usernameLabel = new Label { Text = "Username:", X = Pos.Center () -17, Y = Pos.Center()};
+        
+        var usernameLabel = new Label
+        {
+            Text = "Username:", 
+            X = Pos.Center () -12, 
+            Y = Pos.Center()
+        };
 
         var userNameText = new TextField
         {
             X = Pos.Right (usernameLabel) + 1,
-            Y = Pos.Center (),
+            Y = Pos.Top(usernameLabel),
             
-            Width = Dim.Percent(12)
+            Width = 15
         };
         
         
@@ -27,7 +34,7 @@ public sealed class SinginWindow : Runnable<string?>
         {
             Text = "Login",
             Y = Pos.Bottom (usernameLabel) + 1,
-            X = Pos.Center (),
+            X = Pos.Center(),
             IsDefault = true
         };
         

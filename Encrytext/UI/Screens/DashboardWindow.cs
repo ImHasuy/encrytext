@@ -45,8 +45,9 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
             Y = Pos.Top(Menubar) + 2
         };
         
-        var label = new Label { Text = $"Welcome {AppState.CurrentUser!.Name}!", X = Pos.Center(), Y = Pos.Bottom(logo) +1 };
+        var welcome = new Label { Text = $"Welcome {AppState.CurrentUser!.Name}!", X = Pos.Center(), Y = Pos.Bottom(logo) +1 };
         
+        var suggestionText = new Label { Text = $"Please select a user below to chat with!", X = Pos.Center(), Y = Pos.Bottom(welcome) +1 };
         
         var spinner = new SpinnerView
         {
@@ -78,8 +79,8 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
          _partnerList = new ListView
          {
              X = Pos.Center(),
-             Y = Pos.Bottom(label) + 1,
-             Width = Dim.Absolute(8),
+             Y = Pos.Bottom(suggestionText) + 1,
+             Width = Dim.Auto(),
              Height = Dim.Fill(4),
          };
          
@@ -116,7 +117,7 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
          }
          
          
-        Add(Menubar,logo, label, spinner, _partnerList ,Statusbar);
+        Add(Menubar,logo, welcome, suggestionText, spinner, _partnerList ,Statusbar);
     }
     
  

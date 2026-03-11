@@ -25,7 +25,11 @@ if (!string.IsNullOrEmpty(userName))
 {
     AppState.CurrentUser.Name = userName;
     app.Run<DashboardWindow>();
-    app.Run<ChatWindow>();
+    if (AppState.CurrentUser.CurrentMessageProfile != null)
+    {
+        app.Run<ChatWindow>();
+    }
+    
 }
 #endregion
 
