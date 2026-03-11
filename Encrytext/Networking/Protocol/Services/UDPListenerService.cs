@@ -79,6 +79,7 @@ public class UdpListenerService
         {
             PartnerEndPoint = remoteEndPoint,
             PartnerName = packet.SenderUserName,
+            PartnerGuid = packet.SenderUserId,
             Status = PartnerStatus.Discovered
         };
         

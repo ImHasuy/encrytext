@@ -17,8 +17,8 @@ public class HandleClient
             NegotiateResult IpDetailes = await NegotiateAsync(stream);
             var contact = AppState.CurrentUser?.Contacts?.FirstOrDefault(c => c.PartnerEndPoint!.Equals(client.Client.RemoteEndPoint));
             
+            //Setting MessageProfile and stream for the current user
             AppState.CurrentUser!.CurrentMessageProfile = contact;
-            
             contact!.ActiveStream = stream;
             
             contact!.PublicKey = IpDetailes.publicKey;

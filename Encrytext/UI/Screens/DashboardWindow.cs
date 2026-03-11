@@ -74,19 +74,18 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
           * _systemTimer = null;
           *
           */
-         var btnLogout = new Button { Text = "Logout", X = Pos.Center(), Y = Pos.Bottom(label) + 3 };
          
          _partnerList = new ListView
          {
              X = Pos.Center(),
-             Y = Pos.Bottom(btnLogout) + 1,
-             Width = Dim.Fill(),
+             Y = Pos.Bottom(label) + 1,
+             Width = Dim.Absolute(8),
              Height = Dim.Fill(4),
          };
          
          _partnerList.SetSource(AppState.CurrentUser.Contacts);
-
-
+         
+      
          if (AppState.CurrentUser.Contacts.Count == 0)
          {
              AppState.CurrentUser.Contacts.CollectionChanged += (s, e) =>
@@ -97,15 +96,27 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
                  });
              };
          }
-      
-        
-        
-        btnLogout.Accepting += (s, e) => {
-            RequestStop();
-            e.Handled = true;
-        };  
-        
-        Add(Menubar,logo, label, spinner, btnLogout, _partnerList ,Statusbar);
+
+
+
+
+         _partnerList.ValueChanged += (s, e) =>
+         {
+             var index = _partnerList.SelectedItem!.Value;
+             var chosenPartner = AppState.CurrentUser.Contacts[index];
+             AppState.CurrentUser.CurrentMessageProfile = chosenPartner;
+             App!.RequestStop();
+         };
+         
+         
+         
+         if (_partnerList.Value != null)
+         {
+            
+         }
+         
+         
+        Add(Menubar,logo, label, spinner, _partnerList ,Statusbar);
     }
     
  

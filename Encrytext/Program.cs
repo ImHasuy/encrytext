@@ -25,6 +25,7 @@ if (!string.IsNullOrEmpty(userName))
 {
     AppState.CurrentUser.Name = userName;
     app.Run<DashboardWindow>();
+    app.Run<ChatWindow>();
 }
 #endregion
 
@@ -36,20 +37,4 @@ public static class AppState
     public static IpAddressService LocalIpAddress = new IpAddressService();
 }
 
-
-/*
-var userCred =  PublicKeyBox.GenerateKeyPair();
-
-LocalUser.Contacts.Add(new MessageProfile
-{
-    PrivateKey = userCred.PrivateKey,
-    PublicKey = userCred.PublicKey,
-    
-});
-
-*/
-
-
-
-// Defines a top-level window with border and title
 
