@@ -19,4 +19,10 @@ public class MessageProfile
 
     public ObservableCollection<MessageHistory> MessageHistory { get; set; } =
         new ObservableCollection<MessageHistory>();
+    
+    
+    public override string ToString()
+    {
+        return $"{PartnerName}   ---   {PartnerEndPoint}";
+    }
 }

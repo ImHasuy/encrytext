@@ -37,7 +37,7 @@ public class UdpListenerService
                 var packet = JsonSerializer.Deserialize<UDPDiscover>(json);
                 if (AppState.CurrentUser.SentDiscoveries.Any(c => c.RequestId.Equals(packet!.RequestId)))
                 {
-                    break;
+                    continue;
                 }
                 
                 switch (packet?.Type)

@@ -13,8 +13,5 @@ public class User
     
     public MessageProfile? CurrentMessageProfile { get; set; }
 
-    public override string ToString()
-    {
-        return $"{Name}   ---   {IpAddress}";
-    }
+    
 }

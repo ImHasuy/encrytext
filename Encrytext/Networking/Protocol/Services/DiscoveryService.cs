@@ -43,7 +43,7 @@ public class DiscoveryService
             
             IPAddress address = IPAddress.Parse(AppState.CurrentUser.IpAddress);
             
-            await udp.SendAsync(data, data.Length, new IPEndPoint(address,1234));
+            await udp.SendAsync(data, data.Length, new IPEndPoint(IPAddress.Broadcast, 1234));
             
             await Task.Delay(1000, cancellationToken);
         }

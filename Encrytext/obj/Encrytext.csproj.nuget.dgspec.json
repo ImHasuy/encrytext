@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/jocibevanbaszva/encrytext/encrytext/Encrytext/Encrytext.csproj": {}
+    "/home/heckervagyokanya/lehuzottencry/encrytext/Encrytext/Encrytext.csproj": {}
   },
   "projects": {
-    "/home/jocibevanbaszva/encrytext/encrytext/Encrytext/Encrytext.csproj": {
+    "/home/heckervagyokanya/lehuzottencry/encrytext/Encrytext/Encrytext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jocibevanbaszva/encrytext/encrytext/Encrytext/Encrytext.csproj",
+        "projectUniqueName": "/home/heckervagyokanya/lehuzottencry/encrytext/Encrytext/Encrytext.csproj",
         "projectName": "Encrytext",
-        "projectPath": "/home/jocibevanbaszva/encrytext/encrytext/Encrytext/Encrytext.csproj",
-        "packagesPath": "/home/jocibevanbaszva/.nuget/packages/",
-        "outputPath": "/home/jocibevanbaszva/encrytext/encrytext/Encrytext/obj/",
+        "projectPath": "/home/heckervagyokanya/lehuzottencry/encrytext/Encrytext/Encrytext.csproj",
+        "packagesPath": "/home/heckervagyokanya/.nuget/packages/",
+        "outputPath": "/home/heckervagyokanya/lehuzottencry/encrytext/Encrytext/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/jocibevanbaszva/.nuget/NuGet/NuGet.Config"
+          "/home/heckervagyokanya/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
