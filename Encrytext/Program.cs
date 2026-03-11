@@ -12,7 +12,8 @@ AppState.CurrentUser =  new User
 {
     Name = "LocalUser",
     Guid = Guid.NewGuid(),
-    IpAddress = AppState.LocalIpAddress.GetIpAddress()
+    IpAddress = AppState.LocalIpAddress.GetIpAddress(),
+    CurrentMessageProfile = null
 };
     
 IApplication app = Application.Create ().Init ();

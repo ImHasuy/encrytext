@@ -7,4 +7,5 @@ public class UDPResponse
     public Guid UserId { get; set; }
     public string UserName { get; set; }
     public string TcpPort { get; set; } 
+    public TypeEnum Type { get; set; } = TypeEnum.response;
 }
