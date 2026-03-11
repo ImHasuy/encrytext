@@ -56,6 +56,8 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
         
         DiscoveryService discoveryService = new ();
         discoveryService.Start();
+        UdpListenerService udpListenerService = new ();
+        udpListenerService.Start();
       
         
         _systemTimer?.Dispose ();
@@ -72,13 +74,14 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
           * _systemTimer = null;
           *
           */
+         var btnLogout = new Button { Text = "Logout", X = Pos.Center(), Y = Pos.Bottom(label) + 3 };
          
          _partnerList = new ListView
          {
              X = Pos.Center(),
-             Y = Pos.Bottom(label) + 2,
+             Y = Pos.Bottom(btnLogout) + 1,
              Width = Dim.Fill(),
-             Height = Dim.Fill() - Dim.Height(Statusbar) 
+             Height = Dim.Fill(4),
          };
          
          _partnerList.SetSource(AppState.CurrentUser.Contacts);
@@ -95,7 +98,7 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
              };
          }
       
-        var btnLogout = new Button { Text = "Logout", X = Pos.Center(), Y = Pos.Bottom(label) + 3 };
+        
         
         btnLogout.Accepting += (s, e) => {
             RequestStop();
