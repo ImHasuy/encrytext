@@ -55,8 +55,8 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
         
         
         DiscoveryService discoveryService = new ();
+        discoveryService.Start();
       
-        
         
         _systemTimer?.Dispose ();
         _systemTimer = null;
