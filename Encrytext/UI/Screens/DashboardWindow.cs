@@ -73,7 +73,7 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
           *
           */
          
-         _partnerList = new ListView()
+         _partnerList = new ListView
          {
              X = Pos.Center(),
              Y = Pos.Bottom(label) + 2,
@@ -102,7 +102,7 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
             e.Handled = true;
         };  
         
-        Add(Menubar,logo, label, spinner, btnLogout, Statusbar);
+        Add(Menubar,logo, label, spinner, btnLogout, _partnerList ,Statusbar);
     }
     
  
