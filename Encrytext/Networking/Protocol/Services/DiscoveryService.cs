@@ -32,14 +32,18 @@ public class DiscoveryService
             var packet = new UDPDiscover
             {
                 RequestId = Guid.NewGuid(),
-                SenderUserId = AppState.CurrentUser.Guid
+                SenderUserName = AppState.CurrentUser.Name,
+                SenderUserId = AppState.CurrentUser.Guid,
+                Type = TypeEnum.request
             };
 
             AppState.CurrentUser.SentDiscoveries.Add(packet);
 
             byte[] data = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(packet));
             
-            await udp.SendAsync(data, data.Length, new IPEndPoint(IPAddress.Broadcast, 1234));
+            IPAddress address = IPAddress.Parse(AppState.CurrentUser.IpAddress);
+            
+            await udp.SendAsync(data, data.Length, new IPEndPoint(address,1234));
             
             await Task.Delay(1000, cancellationToken);
         }
