@@ -16,6 +16,9 @@ public class TcpConnectService
         
         await client.ConnectAsync(AppState.CurrentUser!.UserChosenMessageProfile!.PartnerEndPoint!.Address, 5555);
 
+        //set tcpClient
+        AppState.CurrentUser.currenConnectedClient = client;
+        
         var handler = new HandleClient();
         await handler.HandleClientAsync(client, () => {AppState.CurrentUser.CurrentMessageProfile = null;});
 

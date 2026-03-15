@@ -14,13 +14,18 @@ public class TcpListenerService
         while (true)
         {
             var client = await listener.AcceptTcpClientAsync();
-            if (AppState.CurrentUser.currenConnectedClient.Connected ||
-                AppState.CurrentUser?.UserChosenMessageProfile?.PartnerGuid == AppState.CurrentUser?.CurrentMessageProfile?.PartnerGuid)
+            if (AppState.CurrentUser!.currenConnectedClient != null)
             {
-                client.Close();
-                continue;
+                if (AppState.CurrentUser.currenConnectedClient != null ||
+                    AppState.CurrentUser?.UserChosenMessageProfile?.PartnerGuid == AppState.CurrentUser?.CurrentMessageProfile?.PartnerGuid)
+                {
+                    client.Close();
+                    continue;
+                }
             }
+            
             AppState.CurrentUser.currenConnectedClient = client;
+            
             
             _ = Task.Run(async () => await new HandleClient().HandleClientAsync(client, () => {AppState.CurrentUser.currenConnectedClient  = null;}));
         }

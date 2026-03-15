@@ -14,10 +14,6 @@ public class HandleClient
     {
         try
         {
-            //set tcpClient
-            AppState.CurrentUser.currenConnectedClient = client;
-            
-            
             await using var stream = client.GetStream();
             NegotiateResult IpDetailes = await NegotiateAsync(stream);
             var contact = AppState.CurrentUser?.Contacts?.FirstOrDefault(c => c.PartnerEndPoint.Address.Equals((IPEndPoint)client.Client.RemoteEndPoint));
