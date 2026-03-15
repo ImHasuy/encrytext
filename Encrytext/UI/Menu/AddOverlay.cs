@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.Json.Serialization;
 using Encrytext.UI.CustomType;
+using Microsoft.DotNet.PlatformAbstractions;
 using Terminal.Gui.App;
 using Terminal.Gui.Configuration;
 using Terminal.Gui.Drawing;
@@ -72,7 +73,8 @@ public class AddOverlay : Runnable
         return menuBar;
     }
    
-    
+
+
     public static string GetAboutBoxMessage()
     {
         StringBuilder msg = new();
@@ -224,17 +226,38 @@ public class AddOverlay : Runnable
     
     #region StatusBar
 
-    private StatusBar? _statusBar;
-
     [ConfigurationProperty (Scope = typeof (AppSettingsScope), OmitClassName = true)]
-    [JsonPropertyName ("Encrytext.StatusBar")]
-    public static bool ShowStatusBar { get; set; } = true;
+    [JsonPropertyName ("UICatalog.StatusBar")]
+    public static bool ShowStatusBar
+    {
+        get => field;
+        set
+        {
+            if (field == value)
+            {
+                return;
+            }
+            field = value;
+            StatusBarChanged?.Invoke (null, new ValueChangedEventArgs<bool> (!field, field));
+        }
+    } = true;
+
+    public void SetStatusBar(StatusBar statusBar)
+    {
+        
+    }
+    
+    /// <summary>Raised when "UICatalog.StatusBar" changes.</summary>
+    public static event EventHandler<ValueChangedEventArgs<bool>>? StatusBarChanged;    private StatusBar? _statusBar;
+    
 
     private Shortcut? _shQuit;
     private Shortcut? _shVersion;
     private CheckBox? _force16ColorsShortcutCb;
-
-    private StatusBar CreateStatusBar ()
+    
+    
+    
+    public StatusBar CreateStatusBar ()
     {
         StatusBar statusBar = new () { Visible = ShowStatusBar, AlignmentModes = AlignmentModes.IgnoreFirstOrLast, CanFocus = false };
 
@@ -247,7 +270,7 @@ public class AddOverlay : Runnable
 
         _shQuit = new Shortcut { CanFocus = false, Title = "Quit", Key = Application.QuitKey };
 
-        _shVersion = new Shortcut { Title = "Version Info", CanFocus = false };
+        _shVersion = new Shortcut { Title = $"OS - {RuntimeEnvironment.OperatingSystem} {RuntimeEnvironment.OperatingSystemVersion}" , CanFocus = false };
 
         Shortcut statusBarShortcut = new () { Key = Key.F10, Title = "Show/Hide Status Bar", CanFocus = false };
 
@@ -279,6 +302,22 @@ public class AddOverlay : Runnable
                                                args.Handled = true;
                                            };
         statusBar.Add (_shQuit, statusBarShortcut, force16ColorsShortcut, _shVersion);
+        
+        StatusBarChanged += (_, args) =>
+        {
+            switch (args.NewValue)
+            {
+                case true:
+                    _statusBar!.Height = Dim.Auto ();
+
+                    break;
+
+                case false:
+                    _statusBar!.Height = 0;
+
+                    break;
+            }
+        };
 
         
 

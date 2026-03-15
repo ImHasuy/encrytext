@@ -10,19 +10,19 @@ public class TcpListenerService
     {
         TcpListener listener = new TcpListener(IPAddress.Any, 5555);
         listener.Start();
-        TcpClient? currenClient = null;
         
         while (true)
         {
             var client = await listener.AcceptTcpClientAsync();
-            if (currenClient != null && currenClient.Connected)
+            if (AppState.CurrentUser.currenConnectedClient.Connected ||
+                AppState.CurrentUser?.UserChosenMessageProfile?.PartnerGuid == AppState.CurrentUser?.CurrentMessageProfile?.PartnerGuid)
             {
                 client.Close();
                 continue;
             }
-            currenClient = client;
+            AppState.CurrentUser.currenConnectedClient = client;
             
-            _ = Task.Run(async () => await new HandleClient().HandleClientAsync(client, () => {currenClient = null;}));
+            _ = Task.Run(async () => await new HandleClient().HandleClientAsync(client, () => {AppState.CurrentUser.currenConnectedClient  = null;}));
         }
     }
 }

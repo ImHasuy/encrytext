@@ -17,8 +17,7 @@ public class MessageProfile
     
     public NetworkStream? ActiveStream { get; set; }
 
-    public ObservableCollection<MessageHistory> MessageHistory { get; set; } =
-        new ObservableCollection<MessageHistory>();
+    public ObservableCollection<MessageHistory> MessageHistory { get; set; } = [];
     
     
     public override string ToString()

@@ -10,18 +10,19 @@ using Terminal.Gui.Views;
 
 namespace Encrytext.UI.Screens;
 
-public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
+public class DashboardWindow : InnerWindow 
 {
     private Timer _systemTimer;
     private uint _systemTimerTick = 100; // ms
     private ListView _partnerList;
     
     
+    
     public override void BeginInit()
     {
         var Overlay = new AddOverlay();
         var Menubar = Overlay.CreateMenuBar();
-        var Statusbar = new StatusBar();
+        var Statusbar = Overlay.CreateStatusBar();
         
         
         Title = "Dashboard";
@@ -59,6 +60,8 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
         discoveryService.Start();
         UdpListenerService udpListenerService = new ();
         udpListenerService.Start();
+        TcpListenerService tcpListenerService = new ();
+        _ = Task.Run(async () => await tcpListenerService.TcpListenerServiceAsync());
       
         
         _systemTimer?.Dispose ();
@@ -105,16 +108,14 @@ public class DashboardWindow : InnerWindow // Vagy Runnable<bool>
          {
              var index = _partnerList.SelectedItem!.Value;
              var chosenPartner = AppState.CurrentUser.Contacts[index];
-             AppState.CurrentUser.CurrentMessageProfile = chosenPartner;
+             AppState.CurrentUser.UserChosenMessageProfile = chosenPartner;
+             discoveryService.Stop();
+             udpListenerService.Stop();
              App!.RequestStop();
          };
          
          
          
-         if (_partnerList.Value != null)
-         {
-            
-         }
          
          
         Add(Menubar,logo, welcome, suggestionText, spinner, _partnerList ,Statusbar);

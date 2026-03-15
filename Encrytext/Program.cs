@@ -15,7 +15,7 @@ AppState.CurrentUser =  new User
     IpAddress = AppState.LocalIpAddress.GetIpAddress(),
     CurrentMessageProfile = null
 };
-    
+
 IApplication app = Application.Create ().Init ();
 
 #region Routing
@@ -25,11 +25,14 @@ if (!string.IsNullOrEmpty(userName))
 {
     AppState.CurrentUser.Name = userName;
     app.Run<DashboardWindow>();
+    if (AppState.CurrentUser.UserChosenMessageProfile != null)
+    {
+        app.Run<waitingWindow>();
+    }
     if (AppState.CurrentUser.CurrentMessageProfile != null)
     {
         app.Run<ChatWindow>();
     }
-    
 }
 #endregion
 

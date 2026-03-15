@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Net.Sockets;
 using System.Text;
 using Encrytext.Core.Entity;
+using Encrytext.Core.Enums;
 using Sodium;
 
 namespace Encrytext.Networking.Protocol.Services;
@@ -12,20 +13,27 @@ public class HandleClient
     {
         try
         {
+            //set tcpClient
+            AppState.CurrentUser.currenConnectedClient = client;
+            
+            
             await using var stream = client.GetStream();
-           
             NegotiateResult IpDetailes = await NegotiateAsync(stream);
             var contact = AppState.CurrentUser?.Contacts?.FirstOrDefault(c => c.PartnerEndPoint!.Equals(client.Client.RemoteEndPoint));
             
             //Setting MessageProfile and stream for the current user
-            AppState.CurrentUser!.CurrentMessageProfile = contact;
+            contact!.Status = PartnerStatus.Connected;
             contact!.ActiveStream = stream;
             
             contact!.PublicKey = IpDetailes.publicKey;
             contact.PrivateKey = IpDetailes.privateKey;
             contact.PartnerPublicKey = IpDetailes.PartnerPublicKey;
-             
+            contact.MessageHistory = []; 
+            
+            AppState.CurrentUser!.CurrentMessageProfile = contact;
+            
             await MessageListeningLoopAsync(stream, contact);
+            
         }
         catch (Exception e)
         {
@@ -100,7 +108,7 @@ public class HandleClient
                 await ReadFromStreamAsync(stream, packet);
             
                 //decypt 
-                byte[] decryptedPacket = SealedPublicKeyBox.Open(packet, messageProfile.PrivateKey, messageProfile.PublicKey);
+                byte[] decryptedPacket = SealedPublicKeyBox.Open(packet,messageProfile.PrivateKey, messageProfile.PublicKey);
             
                 string message = Encoding.UTF8.GetString(decryptedPacket);
 
@@ -120,24 +128,6 @@ public class HandleClient
         {
             Console.WriteLine(e);
         }
-    }
-
-    public async Task SendMessageAsync(NetworkStream stream, string message, MessageProfile messageProfile)
-    {
-        byte[] buffer = Encoding.UTF8.GetBytes(message);
-
-        byte[] encryptedBuffer = SealedPublicKeyBox.Create(buffer, messageProfile.PartnerPublicKey);
-        
-        byte[] bufferLenght = BitConverter.GetBytes(encryptedBuffer.Length);
-        
-        //send lenght
-        await stream.WriteAsync(bufferLenght,0,bufferLenght.Length);
-        
-        //send encrypted message
-        
-        await stream.WriteAsync(encryptedBuffer,0,encryptedBuffer.Length);
-        
-        await stream.FlushAsync();
     }
     
 }
