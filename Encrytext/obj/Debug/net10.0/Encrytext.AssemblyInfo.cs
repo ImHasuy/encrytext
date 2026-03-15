@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Encrytext")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0af617c2811efa18879b1e67c2da4455ea99fe8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8c4aadbcd41fdd4b76b9b150cca7640b4a64de2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Encrytext")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Encrytext")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

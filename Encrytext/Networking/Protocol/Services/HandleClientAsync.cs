@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Encrytext.Core.Entity;
@@ -19,7 +20,7 @@ public class HandleClient
             
             await using var stream = client.GetStream();
             NegotiateResult IpDetailes = await NegotiateAsync(stream);
-            var contact = AppState.CurrentUser?.Contacts?.FirstOrDefault(c => c.PartnerEndPoint!.Equals(client.Client.RemoteEndPoint));
+            var contact = AppState.CurrentUser?.Contacts?.FirstOrDefault(c => c.PartnerEndPoint.Address.Equals((IPEndPoint)client.Client.RemoteEndPoint));
             
             //Setting MessageProfile and stream for the current user
             contact!.Status = PartnerStatus.Connected;
