@@ -12,8 +12,7 @@ public class ChatWindow :InnerWindow
     public override void BeginInit()
     {
 
-        var tcpConnection = new TcpConnectService();
-        _ = Task.Run(async () => await tcpConnection.TcpConnectServiceAsync());
+       
         
         var Overlay = new AddOverlay();
         var Menubar = Overlay.CreateMenuBar();

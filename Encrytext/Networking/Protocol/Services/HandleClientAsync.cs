@@ -46,7 +46,7 @@ public class HandleClient
             onDisconnect();
         }
     }
-
+/*
     public async Task<NegotiateResult> NegotiateAsync(NetworkStream stream)
     {
         var keypair = PublicKeyBox.GenerateKeyPair();
@@ -77,7 +77,38 @@ public class HandleClient
        
         return negotiationResult;
     }
+*/
 
+
+    public async Task<NegotiateResult> NegotiateAsync(NetworkStream stream)
+    {
+        var keypair = PublicKeyBox.GenerateKeyPair();
+        byte[] myKey = keypair.PublicKey;
+        byte[] myLength = BitConverter.GetBytes(myKey.Length);
+
+        // 1. Kick off the Read Task but DO NOT 'await' it yet.
+        // This tells the OS: "I am ready to receive whenever the data arrives."
+        byte[] partnerLenBuf = new byte[4];
+        Task readLenTask = ReadFromStreamAsync(stream, partnerLenBuf);
+
+        // 2. Now perform the Write.
+        await stream.WriteAsync(myLength, 0, 4);
+        await stream.WriteAsync(myKey, 0, myKey.Length);
+        await stream.FlushAsync();
+
+        // 3. Now await the reading task that we started in step 1.
+        await readLenTask; 
+    
+        int partnerKeyLen = BitConverter.ToInt32(partnerLenBuf, 0);
+        byte[] partnerKeyBuf = new byte[partnerKeyLen];
+        await ReadFromStreamAsync(stream, partnerKeyBuf);
+
+        return new NegotiateResult {
+            privateKey = keypair.PrivateKey,
+            publicKey = keypair.PublicKey,
+            PartnerPublicKey = partnerKeyBuf
+        };
+    }
     public async Task ReadFromStreamAsync(NetworkStream stream, byte[] buffer)
     {
         int readCount = 0;

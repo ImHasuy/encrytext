@@ -1,3 +1,4 @@
+using Encrytext.Networking.Protocol.Services;
 using Encrytext.UI.CustomType;
 using Terminal.Gui.ViewBase;
 using Terminal.Gui.Views;
@@ -12,6 +13,9 @@ public class waitingWindow : InnerWindow
 
     public override void BeginInit()
     {
+        var tcpConnection = new TcpConnectService();
+        _ = Task.Run(async () => await tcpConnection.TcpConnectServiceAsync());
+        
         var welcome = new Label { Text = $"Wainting for your partner to connect!", X = Pos.Center(), Y = Pos.Center() +1 };
         
         
