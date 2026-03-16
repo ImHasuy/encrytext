@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Net.Sockets;
-using Encrytext.Networking.Protocol.interfaces;
+using Encrytext.Networking.interfaces;
 
 namespace Encrytext.Core.Entity;
 

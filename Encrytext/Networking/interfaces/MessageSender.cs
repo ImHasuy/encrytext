@@ -3,7 +3,7 @@ using System.Text;
 using Encrytext.Core.Entity;
 using Sodium;
 
-namespace Encrytext.Networking.Protocol.Services;
+namespace Encrytext.Networking.interfaces;
 
 public class MessageSender
 {

@@ -1,4 +1,4 @@
-namespace Encrytext.Networking.Protocol.interfaces;
+namespace Encrytext.Networking.interfaces;
 
 public class UDPDiscover
 {

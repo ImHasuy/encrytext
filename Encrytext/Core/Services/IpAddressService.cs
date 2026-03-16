@@ -14,9 +14,8 @@ public class IpAddressService
                 .SelectMany(n => n.GetIPProperties().UnicastAddresses)
                 .Where(a => a.Address.AddressFamily == AddressFamily.InterNetwork)
                 .Select(a => a.Address.ToString())
-                .FirstOrDefault(ip => ip.StartsWith("10.135."));
-
-        Console.WriteLine(ip);
-        return ip ?? "asdasdasd";
+                .FirstOrDefault(ip => ip.StartsWith("10.135.")); //Subnet has to be adjuster per use according to your network setup
+        
+        return ip ?? "unknown";
     }
 } 

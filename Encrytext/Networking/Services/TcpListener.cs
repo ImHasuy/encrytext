@@ -1,8 +1,7 @@
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.InteropServices.ComTypes;
 
-namespace Encrytext.Networking.Protocol.Services;
+namespace Encrytext.Networking.Services;
 
 public class TcpListenerService
 {

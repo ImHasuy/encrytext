@@ -1,4 +1,4 @@
-namespace Encrytext.Networking.Protocol.Services;
+namespace Encrytext.Networking.interfaces;
 
 public class NegotiateResult
 {

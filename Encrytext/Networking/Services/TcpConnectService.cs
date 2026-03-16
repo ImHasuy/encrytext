@@ -1,6 +1,6 @@
 using System.Net.Sockets;
 
-namespace Encrytext.Networking.Protocol.Services;
+namespace Encrytext.Networking.Services;
 
 public class TcpConnectService
 {

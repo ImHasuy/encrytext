@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Immutable;
-using Encrytext.Networking.Protocol.interfaces;
-using Encrytext.Networking.Protocol.Services;
+using Encrytext.Networking.Services;
 using Encrytext.UI.CustomType;
 using Encrytext.UI.Menu;
 using Terminal.Gui.App;

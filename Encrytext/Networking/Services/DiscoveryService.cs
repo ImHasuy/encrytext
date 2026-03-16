@@ -2,9 +2,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
-using Encrytext.Networking.Protocol.interfaces;
+using Encrytext.Networking.interfaces;
 
-namespace Encrytext.Networking.Protocol.Services;
+namespace Encrytext.Networking.Services;
 
 public class DiscoveryService
 {

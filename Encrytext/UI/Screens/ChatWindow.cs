@@ -1,5 +1,5 @@
 using Encrytext.Core.Entity;
-using Encrytext.Networking.Protocol.Services;
+using Encrytext.Networking.interfaces;
 using Encrytext.UI.CustomType;
 using Encrytext.UI.Menu;
 using Terminal.Gui.Input;
@@ -12,9 +12,6 @@ public class ChatWindow :InnerWindow
 {
     public override void BeginInit()
     {
-
-       
-        
         var Overlay = new AddOverlay();
         var Menubar = Overlay.CreateMenuBar();
         var Statusbar = Overlay.CreateStatusBar();
@@ -90,7 +87,8 @@ public class ChatWindow :InnerWindow
             X = 0,
             Y =Pos.Bottom(chatWindow),
             Width = Dim.Fill() - availableUsers.Width -1,
-            Height = Dim.Absolute(4)
+            Height = Dim.Absolute(4),
+            HasFocus = true
         };
 
         var inputField = new TextField()
@@ -98,9 +96,8 @@ public class ChatWindow :InnerWindow
             X = 0,
             Y = 0,
             Width = Dim.Fill(),
+            HasFocus = true
         };
-
-        
         
 
         inputField.KeyDown += (s, e) =>
