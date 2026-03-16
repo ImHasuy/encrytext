@@ -28,14 +28,16 @@ public class waitingWindow : InnerWindow
         
         _systemTimer?.Dispose ();
         _systemTimer = null;
+        bool stopRequested = false;
 
         _systemTimer = new Timer(_ =>
             {
                 App?.Invoke(_ => spinner.AdvanceAnimation());
                 
-                if ( AppState.CurrentUser?.UserChosenMessageProfile?.PartnerGuid == AppState.CurrentUser?.CurrentMessageProfile?.PartnerGuid)
+                if ( (AppState.CurrentUser?.UserChosenMessageProfile?.PartnerGuid == AppState.CurrentUser?.CurrentMessageProfile?.PartnerGuid) && !stopRequested)
                 {
-                    App.RequestStop();
+                    stopRequested = true;
+                    App!.RequestStop();
                 }
                 
                 

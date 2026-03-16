@@ -1,3 +1,4 @@
+using Encrytext.Core.Entity;
 using Encrytext.Networking.Protocol.Services;
 using Encrytext.UI.CustomType;
 using Encrytext.UI.Menu;
@@ -89,6 +90,7 @@ public class ChatWindow :InnerWindow
         };
 
         
+        
 
         inputField.KeyDown += (s, e) =>
         {
@@ -101,6 +103,14 @@ public class ChatWindow :InnerWindow
                        await messageSender.SendMessageAsync(AppState.CurrentUser.CurrentMessageProfile.ActiveStream, message,
                             AppState.CurrentUser.CurrentMessageProfile));
 
+                    var sentMesages = new MessageHistory
+                    {
+                        Message = message,
+                        Sendername = AppState.CurrentUser.Name,
+                        TimeStamp = DateTime.Now
+                    };
+                    
+                    AppState.CurrentUser.CurrentMessageProfile.MessageHistory.Add(sentMesages);
                 }
                 
                 inputField.Text = "";
@@ -109,6 +119,7 @@ public class ChatWindow :InnerWindow
         };
         inputWindow.Add(inputField);
 
+        base.BeginInit();
         #endregion
         
         
