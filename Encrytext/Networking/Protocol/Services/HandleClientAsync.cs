@@ -16,7 +16,12 @@ public class HandleClient
         {
             await using var stream = client.GetStream();
             NegotiateResult IpDetailes = await NegotiateAsync(stream);
-            var contact = AppState.CurrentUser?.Contacts?.FirstOrDefault(c => c.PartnerEndPoint.Address.Equals((IPEndPoint)client.Client.RemoteEndPoint));
+
+            var tcpIp = ((IPEndPoint)client.Client.RemoteEndPoint!).Address.MapToIPv4();
+
+            var contact = AppState.CurrentUser?.Contacts?
+                .FirstOrDefault(c =>
+                    c.PartnerEndPoint.Address.MapToIPv4().Equals(tcpIp));
             
             //Setting MessageProfile and stream for the current user
             contact!.Status = PartnerStatus.Connected;
