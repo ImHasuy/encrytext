@@ -33,14 +33,15 @@ public class ChatWindow :InnerWindow
 
         var chatContent = new ListView()
         {
+            X = 0,
+            Y = 0,
             Width = Dim.Fill(),
-            Height = Dim.Fill()
+            Height = Dim.Auto()
         };
         
-        chatContent.SetSource(AppState.CurrentUser.CurrentMessageProfile.MessageHistory);
+        chatContent.SetSource(AppState.CurrentUser!.CurrentMessageProfile!.MessageHistory);
         
-        if (AppState.CurrentUser.CurrentMessageProfile.MessageHistory.Count == 0)
-        {
+       
             AppState.CurrentUser.CurrentMessageProfile.MessageHistory.CollectionChanged += (s, e) =>
             {
                 App?.Invoke(() =>
@@ -48,8 +49,8 @@ public class ChatWindow :InnerWindow
                     chatContent.SetNeedsLayout();
                 });
             };
-        }
         
+            chatWindow.Add(chatContent);
         #endregion 
 
 
@@ -65,6 +66,17 @@ public class ChatWindow :InnerWindow
             Width = Dim.Percent(20),
             Height = Dim.Fill() - 1
         };
+
+        var userList = new ListView()
+        {
+            Width = Dim.Fill(),
+            Height = Dim.Fill()
+        };
+        
+        userList.SetSource(AppState.CurrentUser!.Contacts);
+        
+        availableUsers.Add(userList);
+        
         
         #endregion
 
@@ -83,10 +95,9 @@ public class ChatWindow :InnerWindow
 
         var inputField = new TextField()
         {
-            X = Pos.Center(),
-            Y = Pos.Center(),
+            X = 0,
+            Y = 0,
             Width = Dim.Fill(),
-            Height = Dim.Fill()
         };
 
         

@@ -72,12 +72,7 @@ public class DashboardWindow : InnerWindow
                 App?.Invoke(_ => spinner.AdvanceAnimation());
             }, null, 0, _systemTimerTick
         );
-         /*
-          *To stop run
-          *  _systemTimer?.Dispose ();
-          * _systemTimer = null;
-          *
-          */
+    
          
          _partnerList = new ListView
          {

@@ -34,19 +34,19 @@ public class waitingWindow : InnerWindow
             {
                 App?.Invoke(_ => spinner.AdvanceAnimation());
                 
-                if ( (AppState.CurrentUser?.UserChosenMessageProfile?.PartnerGuid == AppState.CurrentUser?.CurrentMessageProfile?.PartnerGuid) && !stopRequested)
+                var chosenGuid = AppState.CurrentUser!.UserChosenMessageProfile!.PartnerGuid;
+                var currentMsProfileGuid = AppState.CurrentUser?.CurrentMessageProfile?.PartnerGuid;
+
+                if (chosenGuid != null && currentMsProfileGuid != null && !stopRequested && chosenGuid.Equals(currentMsProfileGuid))
                 {
                     stopRequested = true;
-                    App!.RequestStop();
+                    App?.Invoke(_ => App.RequestStop());
                 }
-                
                 
             }, null, 0, _systemTimerTick
         );
-
         
         Add(welcome, spinner);
-        
     }
     
 }
