@@ -12,10 +12,10 @@
 
 ## 🚀 Key Features
 
-* **P2P Architecture:** Direct connections between peers using **Socket.io** and **TCP**. No central servers storing your message logs.
-* **End-to-End Encryption (E2EE):** Leverages the **Web Crypto API** for robust encryption.
+* **P2P Architecture:** Direct connections between peers using **TCP**. No central servers storing your message logs.
+* **End-to-End Encryption (E2EE):** Guarantees complete privacy by ensuring only the intended recipient possesses the keys to decrypt and read your messages.
 * **Diffie-Hellman Key Exchange:** Securely generates a shared secret between users without ever sending the key itself over the wire.
-* **Sleek TUI:** A high-performance Terminal User Interface built with **Blessed**, featuring real-time message rendering and a responsive input buffer.
+* **Terminal GUI:** A high-performance Terminal User Interface, featuring real-time message rendering and a responsive input buffer.
 * **Zero Logs:** Privacy is the default. No databases, no tracking, just code.
 
 ---
@@ -25,6 +25,6 @@
 | Component | Technology |
 | :--- | :--- |
 | **Language** | C# |
-| **Networking** | Socket.io |
-| **Security** | AES-GCM / Diffie-Hellman |
+| **Networking** | System.Net |
+| **Security** | Sodium, AES-GCM / Diffie-Hellman |
 | **UI toolkit** | [Terminal.Gui](https://github.com/gui-cs/Terminal.Gui) |
