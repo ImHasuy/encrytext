@@ -2,9 +2,7 @@
 
 **Secure, Peer-to-Peer, End-to-End Encrypted Messaging in your Terminal.**
 
-[Showcase video placeholder]()
-
-
+![](https://github.com/ImHasuy/encrytext/blob/main/Encrytext_Demo.gif)
 
 `Encrytext` is a lightweight, terminal-based messaging application built for privacy and minimalism. By removing the central server, it establishes a direct link between users, ensuring that your data stays between you and your peer.
 
